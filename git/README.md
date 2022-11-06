@@ -5,9 +5,9 @@ This document covers the guidelines for best practices when using Git.
 ## Table of Contents-
 
 - [1. Branches](#1-branches)
-  - [1.1.1.1. Branch Structure](#11-branch-structure)
-  - [1.1.1.2. Lifespan](#12-lifespan)
-  - [1.1.1.3. Branch Naming](#13-branch-naming)
+  - [1.1. Branch Structure](#11-branch-structure)
+  - [1.2. Lifespan](#12-lifespan)
+  - [1.3. Branch Naming](#13-branch-naming)
 - [2. Commits](#2-commits)
 - [3. Pull Requests](#3-pull-requests)
 - [3.1. Before you start working](#31-before-you-start-working)
