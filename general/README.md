@@ -127,11 +127,11 @@ const friends = ['Kate', 'John']
 
 #### 2.2.1. Classes, Interfaces, Types and Generics
 
-**PascalCase** Every individual word start with an upper case character, no underscores, no dashes.
+`PascalCase` Every individual word start with an upper case character, no underscores, no dashes.
 
 #### 2.2.2. Functions, properties, arguments and variables
 
-**camelCase** Starts with a lower case character, every following individual word start with an
+`camelCase` Starts with a lower case character, every following individual word start with an
 upper case character, no underscores, no dashes.
 
 #### 2.2.3. Properties with a getter and/or setter
@@ -152,7 +152,7 @@ public get isActive(): boolean {
 
 #### 2.2.4. Globally used constants
 
-**SNAKE_UPPER_CASE** Only use upper case characters, individual words must be separated with an
+`SNAKE_UPPER_CASE` Only use upper case characters, individual words must be separated with an
 underscore.
 
 #### 2.2.5. Abbreviations and Acronyms
