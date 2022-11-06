@@ -637,5 +637,5 @@ explaining why it is commented out.
 If something needs to be changed or refactored later, add a `// TODO ` comment to indicate what the
 issue is.
 
-> Tip: Install a spell checker in your IDE to avoid typos.
-> [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree)
+> Tip: Install a TODO finder plugin in your IDE to avoid typos.
+> [TODO Tree](https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree)
