@@ -15,6 +15,6 @@ To make understanding the guidelines easier, we have divided them into the follo
 
 - [General](/general/README.md)
 - [Git](/git/README.md)
-- [TypeScript](#typescript)
+- [TypeScript](/typescript/README.md)
 - [Vue](#vue)
 - [React](#react)
