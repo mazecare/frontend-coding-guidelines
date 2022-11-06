@@ -14,7 +14,7 @@ In order to enforce these standards in your code, it is required to use ESLint a
 To make understanding the guidelines easier, we have divided them into the following sections:
 
 - [General](/general/README.md)
-- [Git](#git)
+- [Git](/git/README.md)
 - [TypeScript](#typescript)
 - [Vue](#vue)
 - [React](#react)
