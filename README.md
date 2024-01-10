@@ -1,4 +1,3 @@
-
 # Coding guidelines
 
 The goal of this repository is to provide a set of guidelines that can be used by all frontend developers in `Mazecare`. The guidelines are not meant to be a set of rules that must be followed at all times. They are meant to be a set of recommendations that should be followed as much as possible.
@@ -18,3 +17,4 @@ To make understanding the guidelines easier, we have divided them into the follo
 - [TypeScript](/typescript/README.md)
 - [Vue](#vue)
 - [React](#react)
+- [Playwright (E2E Test)](/e2e/README.md)
