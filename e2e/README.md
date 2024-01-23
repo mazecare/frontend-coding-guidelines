@@ -121,6 +121,35 @@
     })
     ...
     ```
+11. The safest way of using locator is by using `getByTestId` method
+    ```ts
+    const emailSubject = page.getByTestId('email-subject')
+    ```
+12. Save the locator inside a variable, avoid using locator right in the test step e.g. `await page.getTestById('save-button').click()`, by defining the locator as a variable e.g. `const saveButton = page.getByTestId('save-button')`, not only it's cleaner, it also give you capability to reuse it.
+13. For consistency, please write the tests with more readable order. The variable definitions should be on the top of each tests, then follows with steps below. This way you should be able to debug easier cause the steps are grouped and we can just focus on what we want to track.
+    ```ts
+    test('Delete', async () => {
+       const doctorSideBarMenu = page.getByTestId('Doctors-sidebar-menu')
+       const loading = page.locator('div').filter({ hasText: 'Loading...' })
+       const testDataThreeDot = page.getByTestId(createdDoctorId)
+       const deleteButton = page.getByRole('menuitem', { name: 'Delete', exact: true }).first()
+       const confirmDeleteText = page.getByText('Are you sure you want to delete')
+       const confirmDeleteButton = page.getByRole('button', { name: 'Yes', exact: true }).first()
+       const successMessage = page.getByText('Doctor deleted successfully')
+   
+       await doctorSideBarMenu.click()
+       await testDataThreeDot.click()
+       await expect(deleteButton).toBeVisible()
+       await deleteButton.click()
+       await expect(confirmDeleteText).toBeVisible()
+       await expect(confirmDeleteButton).toBeVisible()
+       await confirmDeleteButton.click()
+       await expect(successMessage).toBeVisible()
+       await expect(loading).toHaveCount(0)
+     })
+    ```
+14. Don't run the tests when the backend is deploying, it can interrupt your tests especially if it's the auth service. There is a big possibility that the access token is reset by the backend.
+15. Feel free to cancel the e2e test progress in the CI if you know it won't be passed. For example, you know the commit that you push will trigger the test run with failing test (might me in another module but you are 100% sure it won't work). This way, not only you save your time, you save the billable time of Github Actions.
 
 # Testing Philosophy
 
