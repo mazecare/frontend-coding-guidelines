@@ -150,6 +150,9 @@
     ```
 14. Don't run the tests when the backend is deploying, it can interrupt your tests especially if it's the auth service. There is a big possibility that the access token is reset by the backend.
 15. Feel free to cancel the e2e test progress in the CI if you know it won't be passed. For example, you know the commit that you push will trigger the test run with failing test (might me in another module but you are 100% sure it won't work). This way, not only you save your time, you save the billable time of Github Actions.
+16. Avoid using `page.goto(<URL>)` multiple times in your test, an example for this is when you want to go to patient's allergy page. First, you need `page.goto` when you want to create brand new patient (this is allowed). Then after you create and redirected to detail page,
+    DON'T use `page.goto` again to go to `/patients/<patientId>/records/allergies`, it's similar to opening the page from the beginning (not using our nuxt navigation, its using browser navigation). It will take time more significant.
+    DO the nuxt navigation instead by clicking element from the UI, for example by navigating to another module by clicking sidebar.
 
 # Testing Philosophy
 
