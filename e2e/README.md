@@ -155,7 +155,7 @@
     DO the nuxt navigation instead by clicking element from the UI, for example by navigating to another module by clicking sidebar.
 17. We use Page Object Model (POM), to store reusable code for example if you work on doctor module, you will have CRUD functionality. Then we have many sub module that will need this functionality as their requirements to start the test. So you would want to make doctor POM to store this functionalities the import it where its needed. It's on `tests/e2e/pom/*.ts`
 18. We have 2 test util functions to wait for network response called `getResponseJson` and `getUploadFileResponse`. Please use them as you need to check the real response that triggered by action you do in the UI. So **DON'T CHECK TOAST TO CHECK THE RESPONSE**
-19. One of playwright issue that commonly occurred is `waitForResponse` race condition. I found this comment on playwright issue that resolve our problem in e2e using `page.waitForResponse` method. It basically explain why we should use await Promise.all when we have action that triggers the network call (or response). There is a high chance of race condition if we do it like this.
+19. One of playwright issue that commonly occurred is `waitForResponse` race condition. I found this [comment on playwright issue](https://github.com/microsoft/playwright/issues/5470#issuecomment-1285640689) that resolve our problem in e2e using `page.waitForResponse` method. It basically explain why we should use await Promise.all when we have action that triggers the network call (or response). There is a high chance of race condition if we do it like this.
       ```ts
       // DON'T
       await exampleButton.click()
