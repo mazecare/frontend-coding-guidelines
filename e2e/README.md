@@ -169,6 +169,38 @@
          exampleButton.click()
       ])
       ```
+20. As we are using `Promise.all` that includes waiter (getResponseJson) and one trigger, we shouldn't wrap `Promise.all` in any form (variable, callback, etc). This will cause race condition error where the wrapper define the trigger's promise once it is declared, even if the trigger is not valid yet.
+      ```ts
+      // DON'T
+      const waitForSelect = Promise.all([
+         getResponseJson(page, { operationName: 'updateOrder' }),
+         selectOption.click(),
+      ])
+      await orderBranchSelector.click()
+      await waitForSelect
+      await orderPatientSelector.click()
+      await waitForSelect
+      await orderCurrencySelector.click()
+      await waitForSelect
+      ```
+      ```ts
+      // DO
+      await orderBranchSelector.click()
+      await Promise.all([
+         getResponseJson(page, { operationName: 'updateOrder' }),
+         selectOption.click(),
+      ])
+      await orderPatientSelector.click()
+      await Promise.all([
+         getResponseJson(page, { operationName: 'updateOrder' }),
+         selectOption.click(),
+      ])
+      await orderCurrencySelector.click()
+      await Promise.all([
+         getResponseJson(page, { operationName: 'updateOrder' }),
+         selectOption.click(),
+      ])
+      ```
 
 # Testing Philosophy
 
