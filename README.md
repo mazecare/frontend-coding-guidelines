@@ -18,3 +18,4 @@ To make understanding the guidelines easier, we have divided them into the follo
 - [Vue](#vue)
 - [React](#react)
 - [Playwright (E2E Test)](/e2e/README.md)
+- [Capacitor](/capacitor/README.md)
