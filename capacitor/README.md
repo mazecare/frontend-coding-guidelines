@@ -27,6 +27,9 @@ This Document covers the information for developing a cross-platform app using [
 - Always check the latest documentation, [here](https://capacitorjs.com/).
 - Make sure to check the CSS compatibility for older Mobile Devices, because Capacitor runs on Webview, check the Webview version of each OS, Android Webview and IOS Webview.
 - Use appRestoredResult listener for plugins such as Camera to prevent data loss if the app is being killed by mobile OS.
+
+#### Android specific
+
 - Disable the scrollbar on Android if it breaks the UI by hiding it from the native code, use this.
 
 ```java
@@ -37,6 +40,10 @@ public class MainActivity extends BridgeActivity {
     }
 }
 ```
+
+#### IOS specific
+
+- IOS Simulator has limitations for certain hardware uses, check the documentation [here](https://developer.apple.com/library/archive/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator/TestingontheiOSSimulator.html).
 
 ### Important Capacitor Official Plugin
 
