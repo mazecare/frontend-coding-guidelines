@@ -201,6 +201,15 @@
          selectOption.click(),
       ])
       ```
+21. We have kinda clean up hook after we do all the tests in one file. This hook will be triggered at the end of all tests event though the there are failed test in one of the steps. So everytime you create object from another module e.g. when testing doctor calendar submodule, it needs a doctor to be created at first using doctor POM, then at the very end of the test of that file, we should trigger afterAll hook and put the POM's delete method there. And don't forget to add `await page.close()`
+    ```
+    ...
+    test.afterAll(async () => {
+       await doctorPom.delete()
+       await page.close()
+     })
+    ...
+    ```
 
 # Testing Philosophy
 
