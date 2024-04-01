@@ -210,6 +210,17 @@
      })
     ...
     ```
+22. Let say you've done your feature and done writing e2e. It's better that you test only your feature first, test this with dev server by running
+      ```
+      yarn run dev
+      yarn run e2e tests/e2e/<your-test-file-name>.spec.ts
+      ```
+      Then before you commit you need to test the whole app using preview server by running
+      ```
+      yarn run build
+      yarn run e2e
+      ```
+      Testing the whole app will be faster using build server and it will imitate the same behavior as what CI does. Once you get an error from another module, please reach out the one who wrote/worked in that module.
 
 # Testing Philosophy
 
