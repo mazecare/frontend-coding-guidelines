@@ -221,6 +221,34 @@
       yarn run e2e
       ```
       Testing the whole app will be faster using build server and it will imitate the same behavior as what CI does. Once you get an error from another module, please reach out the one who wrote/worked in that module.
+23. In every test files (.spec.ts files), we should always clean up what we've been created during the test steps, for example
+      ```
+      let createdDoctorId: string | undefined = undefined
+      ...
+      const responses = await Promise.all([
+         getResponseJson(this.page, { operationName: 'generateIdentifier' }),
+         getResponseJson(this.page, { operationName: 'CreateDoctor' }),
+         getResponseJson(this.page, { operationName: 'CreateCalendar' }),
+         this.addNewDoctorButton.click(),
+      ])
+
+       const createResponse = responses[1]
+       createdDoctorId = createResponse?.data?.createEntity?.id
+       ...
+      ```
+    Then at the end of the test (test.afterAll), we should do this, even though have dedicated `test` to Delete Doctor from UI, cause there is possibility the test failed in the middle of the test run. Then we already have guard function to delete the doctor regardless what the status is.
+       ```
+       test.afterAll(async () => {
+         if (createdDoctorId) {
+           await doctorPom.delete({ id: createdDoctorId })
+          }
+         await doctorPom.delete()
+         await entityContactKeyPom.deleteEntityContactKeys({ direct: true })
+         await salutationPom.delete({ direct: true })
+         await specialityPom.delete({ direct: true })
+         await page.close()
+       })
+       ```
 
 # Testing Philosophy
 
