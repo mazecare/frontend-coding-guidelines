@@ -249,6 +249,14 @@
          await page.close()
        })
        ```
+   24. Always add `await page.close()` in the end of the test
+       ```
+       ...
+       test.afterAll(async () => {
+         ...
+         await page.close()
+       })
+       ```
 
 # Testing Philosophy
 
