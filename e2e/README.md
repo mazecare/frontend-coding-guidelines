@@ -257,6 +257,7 @@
          await page.close()
        })
        ```
+   25. If a modal is opened, then you need to do the next action e.g. doing drag and drop in setting pages after updating, you need to make sure that the modal is closed. You can use this method from playwright called `<MODAL_LOCATOR>.waitFor({ state: 'hidden' })`. This should allow the next step to run correctly.
 
 # Testing Philosophy
 
